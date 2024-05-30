@@ -6,12 +6,12 @@ from web_locators.locators import YaScooterHomePageLocator
 from conftest import *
 
 
-@allure.epic('Эпик_Upgrade Main page / ui usability')
+@allure.epic('Upgrade Main page / ui usability')
 @allure.parent_suite('Parent_suite_Домашняя страница')
 @allure.suite('Suite_FAQ')
 class TestYaScooterFAQPage:
-    @allure.feature('Фича_Аккордион с вопрос/ответ на Домашней страницы')
-    @allure.story('Стори_При нажатии на вопрос в разделе "Вопросы о важном" раскрывается ответ.')
+    @allure.feature('Аккордион с вопрос/ответ на Домашней страницы')
+    @allure.story('При нажатии на вопрос в разделе "Вопросы о важном" раскрывается ответ.')
     @allure.title('При нажатии на вопрос раскрывается ответ ')
     @allure.description('Проверка что при нажатии на поле вопроса в блоке "Вопросы о важном", '
                         'данный вопрос раскрывается и текст в нем соответствует ТЗ')

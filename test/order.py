@@ -6,12 +6,12 @@ from web_locators.locators import *
 from data import YaScooterOrderPageData as order_data
 
 
-@allure.epic('Эпик_Создание заказа')
+@allure.epic('Создание заказа')
 @allure.parent_suite('Parent_suite_Создание заказа')
 class TestYaScooterOrderPage:
-    @allure.suite('Suite_Заполнение данных на странице "Для кого самокат"')
-    @allure.feature('Фича_Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
-    @allure.story('Стори_Негативные проверки заполнения данных на этапе "Для кого самокат"')
+    @allure.suite('Заполнение данных на странице "Для кого самокат"')
+    @allure.feature('Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
+    @allure.story('Негативные проверки заполнения данных на этапе "Для кого самокат"')
     @allure.title('Ввод некорректного Имени')
     @allure.description('Проверка что при вводе некорректного имени в форме оформления заказа, выводится ошибка')
     def test_order_page_first_name_input_incorrect_show_error_message(self, driver):
@@ -23,9 +23,9 @@ class TestYaScooterOrderPage:
         ya_scooter_order_page.go_next()
         assert ya_scooter_order_page.find_element(YaScooterOrderPageLocator.INCORRECT_FIRST_NAME_MESSAGE).is_displayed()
 
-    @allure.suite('Suite_Заполнение данных на странице "Для кого самокат"')
-    @allure.feature('Фича_Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
-    @allure.story('Стори_Негативные проверки заполнения данных на этапе "Для кого самокат"')
+    @allure.suite('Заполнение данных на странице "Для кого самокат"')
+    @allure.feature('Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
+    @allure.story('Негативные проверки заполнения данных на этапе "Для кого самокат"')
     @allure.title('Ввод некорректной Фамилии')
     @allure.description('Проверка что при вводе некорретной Фамилии в форме оформления заказа, выводится ошибка')
     def test_order_page_last_name_input_incorrect_show_error_message(self, driver):
@@ -37,9 +37,9 @@ class TestYaScooterOrderPage:
         ya_scooter_order_page.go_next()
         assert ya_scooter_order_page.find_element(YaScooterOrderPageLocator.INCORRECT_LAST_NAME_MESSAGE).is_displayed()
 
-    @allure.suite('Suite_Заполнение данных на странице "Для кого самокат"')
-    @allure.feature('Фича_Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
-    @allure.story('Стори_Негативные проверки заполнения данных на этапе "Для кого самокат"')
+    @allure.suite('Заполнение данных на странице "Для кого самокат"')
+    @allure.feature('Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
+    @allure.story('Негативные проверки заполнения данных на этапе "Для кого самокат"')
     @allure.title('Ввод Некорректного адреса')
     @allure.description('Проверка что при вводе некорретного адреса в форме оформление заказа, выводится ошибка')
     def test_order_page_address_input_incorrect_show_error_message(self, driver):
@@ -51,9 +51,9 @@ class TestYaScooterOrderPage:
         ya_scooter_order_page.go_next()
         assert ya_scooter_order_page.find_element(YaScooterOrderPageLocator.INCORRECT_ADDRESS_MESSAGE).is_displayed()
 
-    @allure.suite('Suite_Заполнение данных на странице "Для кого самокат"')
-    @allure.feature('Фича_Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
-    @allure.story('Стори_Негативные проверки заполнения данных на этапе "Для кого самокат"')
+    @allure.suite('Заполнение данных на странице "Для кого самокат"')
+    @allure.feature('ФЗаполнения данных user-a при создании заказа на этапе "Для кого самокат"')
+    @allure.story('Негативные проверки заполнения данных на этапе "Для кого самокат"')
     @allure.title('Ввод пустого поля метро')
     @allure.description('Проверка что при пустом поле "Метро" в форме оформление заказа, выводится ошибка')
     def test_order_page_subway_input_empty_show_error_message(self, driver):
@@ -64,9 +64,9 @@ class TestYaScooterOrderPage:
         ya_scooter_order_page.go_next()
         assert ya_scooter_order_page.find_element(YaScooterOrderPageLocator.INCORRECT_SUBWAY_MESSAGE).is_displayed()
 
-    @allure.suite('Suite_Заполнение данных на странице "Для кого самокат"')
-    @allure.feature('Фича_Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
-    @allure.story('Стори_Негативные проверки заполнения данных на этапе "Для кого самокат"')
+    @allure.suite('Заполнение данных на странице "Для кого самокат"')
+    @allure.feature('Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
+    @allure.story('Негативные проверки заполнения данных на этапе "Для кого самокат"')
     @allure.title('Ввод некоректного номера телефона')
     @allure.description('Проверка что при вводе некорретного номера телефона в форме оформления заказа, выводится ошибка')
     def test_order_page_telephone_number_input_incorrect_show_error_message(self, driver):
@@ -78,8 +78,8 @@ class TestYaScooterOrderPage:
         ya_scooter_order_page.go_next()
         assert ya_scooter_order_page.find_element(YaScooterOrderPageLocator.INCORRECT_TELEPHONE_NUMBER_MESSAGE).is_displayed()
 
-    @allure.suite('Suite_Заполнение данных на странице "Для кого самокат"')
-    @allure.feature('Фича_Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
+    @allure.suite('Заполнение данных на странице "Для кого самокат"')
+    @allure.feature('Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
     @allure.story('Стори_Корректный ввод данных user-a на этапе "Для кого самокат"')
     @allure.title('Заполнение данных и переход с этапа "Для кого самокат" на этап "Про аренду"')
     @allure.description('Проверка что при корректных заполненных данных на этапе "Для кого самокат", '
@@ -93,9 +93,9 @@ class TestYaScooterOrderPage:
         ya_scooter_order_page.go_next()
         assert len(ya_scooter_order_page.find_elements(YaScooterOrderPageLocator.ORDER_BUTTON)) > 0
 
-    @allure.suite('Suite_Заполнение данных на странице "Про аренду"')
-    @allure.feature('Фича_Заполнения данных user-a при создании заказа на этапе "Про аренду"')
-    @allure.story('Стори_Корректный ввод данных user-a на этапе "Про аренду"')
+    @allure.suite('Заполнение данных на странице "Про аренду"')
+    @allure.feature('Заполнения данных user-a при создании заказа на этапе "Про аренду"')
+    @allure.story('Корректный ввод данных user-a на этапе "Про аренду"')
     @allure.title('Заполнение данных на этапе "Про аренду" и оформление заказа')
     @allure.description('Проверка что при корреткных заполненных данных на этапе "Про аренду", '
                         'нажатии на кнопку "Заказать", происходит оформление заказа, открывается модальное окно '
@@ -113,9 +113,9 @@ class TestYaScooterOrderPage:
         ya_scooter_order_page.click_accept_order()
         assert len(ya_scooter_order_page.find_elements(YaScooterOrderPageLocator.ORDER_COMPLETED_INFO)) > 0
 
-    @allure.suite('Suite_Полный путь создания заказа')
-    @allure.feature('Фича_Полный путь создания заказа')
-    @allure.story('Стори_Оформление заказа и просмотр страницы заказа')
+    @allure.suite('Полный путь создания заказа')
+    @allure.feature('Полный путь создания заказа')
+    @allure.story('Оформление заказа и просмотр страницы заказа')
     @allure.title('Оформление заказа и переход на страницу с заказом')
     @allure.description('Проверка что при успешном оформлении заказа, заказ отображается на странице "Статус заказа" ')
     @pytest.mark.parametrize('data_set', ['data_set1', 'data_set2'])

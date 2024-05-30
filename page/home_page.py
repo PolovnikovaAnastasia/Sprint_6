@@ -16,7 +16,7 @@ class YaScooterHomePage(BasePage):
     def click_bottom_order_button(self):
         return self.find_element(Locators.BOTTOM_ORDER_BUTTON).click()
 
-    @allure.step('Нажать на вопрос в FAQ')
+    @allure.step('Нажать на вопрос')
     def click_faq_question(self, question_number: int):
         elems = self.find_elements(Locators.FAQ_BUTTONS, 10)
         return elems[question_number].click()
