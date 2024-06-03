@@ -2,8 +2,10 @@ import pytest
 import allure
 from page.home_page import YaScooterHomePage
 from data import YaScooterHomePageFAQ
-from web_locators.locators import YaScooterHomePageLocator
 from conftest import *
+from page.base_page import *
+from page.home_page import *
+from web_locators.locators import YaScooterHomePageLocator
 
 
 @allure.epic('Upgrade Main page / ui usability')
@@ -33,6 +35,6 @@ class TestYaScooterFAQPage:
         ya_scooter_home_page.go_to_site()
         ya_scooter_home_page.click_cookie_accept()
         ya_scooter_home_page.click_faq_question(question_number=question)
-        answer = ya_scooter_home_page.find_element(YaScooterHomePageLocator.FAQ_ANSWER(answer_number=answer))
+        answer = ya_scooter_home_page.test_answer_number(answer_number=answer)
 
         assert answer.is_displayed() and answer.text == expected_answer, 'Ответ на вопрос не совпадает с ожидаемым значением '

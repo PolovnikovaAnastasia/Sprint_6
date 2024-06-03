@@ -1,6 +1,6 @@
-from urls import *
 from page.home_page import *
 from conftest import *
+from page.base_page import *
 
 
 @allure.epic('Upgrade Main page / ui usability')

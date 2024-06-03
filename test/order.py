@@ -1,9 +1,8 @@
 from conftest import *
-from urls import Urls
 from page.home_page import *
 from page.order_page import *
-from web_locators.locators import *
 from data import YaScooterOrderPageData as order_data
+from page.base_page import *
 
 
 @allure.epic('Создание заказа')
@@ -21,7 +20,7 @@ class TestYaScooterOrderPage:
         ya_scooter_home_page.click_cookie_accept()
         ya_scooter_order_page.input_first_name('NNN')
         ya_scooter_order_page.go_next()
-        assert ya_scooter_order_page.find_element(YaScooterOrderPageLocator.INCORRECT_FIRST_NAME_MESSAGE).is_displayed()
+        assert ya_scooter_order_page.test_INCORRECT_FIRST_NAME_MESSAGE().is_displayed()
 
     @allure.suite('Заполнение данных на странице "Для кого самокат"')
     @allure.feature('Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
@@ -35,7 +34,7 @@ class TestYaScooterOrderPage:
         ya_scooter_home_page.click_cookie_accept()
         ya_scooter_order_page.input_last_name('NNN')
         ya_scooter_order_page.go_next()
-        assert ya_scooter_order_page.find_element(YaScooterOrderPageLocator.INCORRECT_LAST_NAME_MESSAGE).is_displayed()
+        assert ya_scooter_order_page.test_INCORRECT_FIRST_NAME_MESSAGE().is_displayed()
 
     @allure.suite('Заполнение данных на странице "Для кого самокат"')
     @allure.feature('Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
@@ -49,7 +48,7 @@ class TestYaScooterOrderPage:
         ya_scooter_home_page.click_cookie_accept()
         ya_scooter_order_page.input_address('NNN')
         ya_scooter_order_page.go_next()
-        assert ya_scooter_order_page.find_element(YaScooterOrderPageLocator.INCORRECT_ADDRESS_MESSAGE).is_displayed()
+        assert ya_scooter_order_page.test_INCORRECT_ADDRESS_MESSAG().is_displayed()
 
     @allure.suite('Заполнение данных на странице "Для кого самокат"')
     @allure.feature('ФЗаполнения данных user-a при создании заказа на этапе "Для кого самокат"')
@@ -62,7 +61,7 @@ class TestYaScooterOrderPage:
         ya_scooter_home_page = YaScooterHomePage(driver)
         ya_scooter_home_page.click_cookie_accept()
         ya_scooter_order_page.go_next()
-        assert ya_scooter_order_page.find_element(YaScooterOrderPageLocator.INCORRECT_SUBWAY_MESSAGE).is_displayed()
+        assert ya_scooter_order_page.test_INCORRECT_SUBWAY_MESSAGE().is_displayed()
 
     @allure.suite('Заполнение данных на странице "Для кого самокат"')
     @allure.feature('Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
@@ -76,7 +75,7 @@ class TestYaScooterOrderPage:
         ya_scooter_home_page.click_cookie_accept()
         ya_scooter_order_page.input_telephone_number('NNN')
         ya_scooter_order_page.go_next()
-        assert ya_scooter_order_page.find_element(YaScooterOrderPageLocator.INCORRECT_TELEPHONE_NUMBER_MESSAGE).is_displayed()
+        assert ya_scooter_order_page.test_INCORRECT_TELEPHONE_NUMBER_MESSAGE().is_displayed()
 
     @allure.suite('Заполнение данных на странице "Для кого самокат"')
     @allure.feature('Заполнения данных user-a при создании заказа на этапе "Для кого самокат"')
@@ -91,7 +90,7 @@ class TestYaScooterOrderPage:
         ya_scooter_home_page.click_cookie_accept()
         ya_scooter_order_page.fill_user_data(order_data.data_sets['data_set1'])
         ya_scooter_order_page.go_next()
-        assert len(ya_scooter_order_page.find_elements(YaScooterOrderPageLocator.ORDER_BUTTON)) > 0
+        assert len(ya_scooter_order_page.len_ORDER_BUTTON()) > 0
 
     @allure.suite('Заполнение данных на странице "Про аренду"')
     @allure.feature('Заполнения данных user-a при создании заказа на этапе "Про аренду"')
@@ -111,7 +110,7 @@ class TestYaScooterOrderPage:
         ya_scooter_order_page.fill_rent_data(order_data.data_sets[data_set])
         ya_scooter_order_page.click_order()
         ya_scooter_order_page.click_accept_order()
-        assert len(ya_scooter_order_page.find_elements(YaScooterOrderPageLocator.ORDER_COMPLETED_INFO)) > 0
+        assert len(ya_scooter_order_page.len_ORDER_COMPLETED_INFO()) > 0
 
     @allure.suite('Полный путь создания заказа')
     @allure.feature('Полный путь создания заказа')

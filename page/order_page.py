@@ -1,7 +1,6 @@
 import re
-
 from page.base_page import BasePage
-from web_locators.locators import YaScooterOrderPageLocator as Locators
+from web_locators.locators import YaScooterOrderPageLocator as Locators, YaScooterOrderPageLocator
 import allure
 
 
@@ -80,3 +79,27 @@ class YaScooterOrderPage(BasePage):
         for option in data_set['color']:
             self.choose_color(option)
         self.input_comment(data_set['comment_for_courier'])
+
+    @allure.step('assert')
+    def len_ORDER_COMPLETED_INFO(self):
+        return self.find_elements(YaScooterOrderPageLocator.ORDER_COMPLETED_INFO)
+
+    @allure.step('assert')
+    def len_ORDER_BUTTON(self):
+        return self.find_elements(YaScooterOrderPageLocator.ORDER_BUTTON)
+
+    @allure.step('assert')
+    def test_INCORRECT_FIRST_NAME_MESSAGE(self):
+        return self.find_element(YaScooterOrderPageLocator.INCORRECT_FIRST_NAME_MESSAGE)
+
+    @allure.step('assert')
+    def test_INCORRECT_ADDRESS_MESSAG(self):
+        return self.find_element(YaScooterOrderPageLocator.INCORRECT_ADDRESS_MESSAGE)
+
+    @allure.step('assert')
+    def test_INCORRECT_SUBWAY_MESSAGE(self):
+        return self.find_element(YaScooterOrderPageLocator.INCORRECT_SUBWAY_MESSAGE)
+
+    @allure.step('assert')
+    def test_INCORRECT_TELEPHONE_NUMBER_MESSAGE(self):
+        return self.find_element(YaScooterOrderPageLocator.INCORRECT_TELEPHONE_NUMBER_MESSAGE)

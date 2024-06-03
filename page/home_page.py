@@ -1,10 +1,8 @@
 import allure
 from page.base_page import BasePage
-from web_locators.locators import BasePageLocator
+from web_locators.locators import *
 from selenium.webdriver.support.wait import WebDriverWait
 from web_locators.locators import YaScooterHomePageLocator as Locators
-from selenium.webdriver.support import expected_conditions as EC
-from conftest import *
 
 
 class YaScooterHomePage(BasePage):
@@ -21,12 +19,6 @@ class YaScooterHomePage(BasePage):
         elems = self.find_elements(Locators.FAQ_BUTTONS, 10)
         return elems[question_number].click()
 
-    @allure.step('Переключиться на вкладку браузера')
-    def switch_window(self, window_number: int = 1):
-        return self.driver.switch_to.window(self.driver.window_handles[window_number])
-
-    def wait_url_until_not_about_blank(self, time=10):
-        return WebDriverWait(self.driver, time).until_not(EC.url_to_be('about:blank'))
 
     @allure.step('Перейти на страницу яндекса')
     def click_yandex_button(self):
@@ -35,3 +27,8 @@ class YaScooterHomePage(BasePage):
     @allure.step('Принять куки')
     def click_cookie_accept(self):
         return self.find_element(BasePageLocator.COOKIE_ACCEPT_BUTTON).click()
+
+    @allure.step('Сравнение вопроса')
+    def test_answer_number(self, answer_number):
+        elems2 = self.find_element(YaScooterHomePageLocator.FAQ_ANSWER, 10)
+        return elems2[answer_number]

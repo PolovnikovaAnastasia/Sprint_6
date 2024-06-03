@@ -16,18 +16,16 @@ class YaScooterHomePageLocator:
     FAQ_ANSWERS = [By.CSS_SELECTOR, ".accordion__panel > p"]
     ORDER_STATUS_BUTTON = [By.XPATH, ".//button[text()='Статус заказа']"]
 
+
     @staticmethod
     def FAQ_QUESTION_BUTTON(question_number):
-        """Возвращает локатор кнопки с вопросом FAQ (нумерация сверху вниз)"""
         return [By.XPATH, f".//div[@class='accordion__button' and @id='accordion__heading-{question_number}']"]
 
     @staticmethod
     def FAQ_ANSWER(answer_number):
-        """
-        Возвращает локатор дива с ответом FAQ (нумеерация сверху вниз).
-        Сами тексты ответов находятся в utils/test_data.py
-        """
         return [By.XPATH, f".//div[@class='accordion__panel' and @id='accordion__panel-{answer_number}']/p"]
+
+
 
 
 class YaScooterOrderPageLocator:
