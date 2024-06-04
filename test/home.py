@@ -15,10 +15,10 @@ class TestYaScooterHomePage:
                         'просходит корректный переход на страницу "Оформления заказа".')
     def test_click_top_order_button_show_order_page(self, driver):
         ya_scooter_home_page = YaScooterHomePage(driver)
-        ya_scooter_home_page.go_to_site()
-        ya_scooter_home_page.click_cookie_accept()
-        ya_scooter_home_page.click_top_order_button()
-        assert ya_scooter_home_page.current_url() == Urls.ORDER_PAGE
+        ya_scooter_home_page.test_go_to_site()
+        ya_scooter_home_page.test_click_cookie_accept()
+        ya_scooter_home_page.test_click_top_order_button()
+        assert ya_scooter_home_page.test_current_url() == Urls.ORDER_PAGE
 
     @allure.feature('Переход к форме "Оформление заказа" из Домашней страницы')
     @allure.story('Переход к "Оформление заказа" по кнопке "Заказать" из блока "Как это работает"')
@@ -27,11 +27,11 @@ class TestYaScooterHomePage:
                         'просходит корректный переход на страницу "Оформления заказа".')
     def test_click_bottom_order_button_show_order_page(self, driver):
         ya_scooter_home_page = YaScooterHomePage(driver)
-        ya_scooter_home_page.go_to_site()
-        ya_scooter_home_page.click_cookie_accept()
-        ya_scooter_home_page.click_bottom_order_button()
+        ya_scooter_home_page.test_go_to_site()
+        ya_scooter_home_page.test_click_cookie_accept()
+        ya_scooter_home_page.test_click_bottom_order_button()
 
-        assert ya_scooter_home_page.current_url() == Urls.ORDER_PAGE
+        assert ya_scooter_home_page.test_current_url() == Urls.ORDER_PAGE
 
     @allure.feature('Переход на страницу "ЯндексДзен" из Домашней страницы')
     @allure.story("Редирект на страницу ЯндексДзен по кнопке logo в header")
@@ -40,11 +40,11 @@ class TestYaScooterHomePage:
                         'происходит корреткный редирект на страницу "ЯндексДзен".')
     def test_click_yandex_button_go_to_yandex(self, driver):
         ya_scooter_home_page = YaScooterHomePage(driver)
-        ya_scooter_home_page.go_to_site()
-        ya_scooter_home_page.click_cookie_accept()
-        ya_scooter_home_page.click_yandex_button()
-        ya_scooter_home_page.switch_window(1)
+        ya_scooter_home_page.test_go_to_site()
+        ya_scooter_home_page.test_click_cookie_accept()
+        ya_scooter_home_page.test_click_yandex_button()
+        ya_scooter_home_page.test_switch_window(1)
         ya_scooter_home_page.wait_url_until_not_about_blank()
-        current_url = ya_scooter_home_page.current_url()
+        current_url = ya_scooter_home_page.test_current_url()
 
         assert (Urls.YANDEX_HOME_PAGE in current_url) or (Urls.DZEN_HOME_PAGE in current_url) or (Urls.YANDEX_CAPTCHA_PAGE in current_url)

@@ -32,9 +32,9 @@ class TestYaScooterFAQPage:
     )
     def test_faq_click_first_question_show_answer(self, driver, question, answer, expected_answer):
         ya_scooter_home_page = YaScooterHomePage(driver)
-        ya_scooter_home_page.go_to_site()
-        ya_scooter_home_page.click_cookie_accept()
-        ya_scooter_home_page.click_faq_question(question_number=question)
+        ya_scooter_home_page.test_go_to_site()
+        ya_scooter_home_page.test_click_cookie_accept()
+        ya_scooter_home_page.test_click_faq_question(question_number=question)
         answer = ya_scooter_home_page.test_answer_number(answer_number=answer)
 
         assert answer.is_displayed() and answer.text == expected_answer, 'Ответ на вопрос не совпадает с ожидаемым значением '

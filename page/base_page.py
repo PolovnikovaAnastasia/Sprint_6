@@ -16,22 +16,24 @@ class BasePage:
         return WebDriverWait(self.driver, time).until(EC.presence_of_all_elements_located(locator),
                                                       message=f"Can't find elements by locator {locator}")
 
+    def wait_url_until_not_about_blank(self, time=10):
+        return WebDriverWait(self.driver, time).until_not(EC.url_to_be('about:blank'))
+
     @allure.step('Перейти по адресу')
-    def go_to_site(self, url=None):
+    def test_go_to_site(self, url=None):
         if url is None:
             url = Urls.MAIN_PAGE
         self.driver.get(url)
 
     @allure.step('Получить текущий URL')
-    def current_url(self):
+    def test_current_url(self):
         return self.driver.current_url
 
     @allure.step('Переключиться на вкладку браузера')
-    def switch_window(self, window_number: int = 1):
+    def test_switch_window(self, window_number: int = 1):
         return self.driver.switch_to.window(self.driver.window_handles[window_number])
 
-    def wait_url_until_not_about_blank(self, time=10):
-        return WebDriverWait(self.driver, time).until_not(EC.url_to_be('about:blank'))
+
 
 
 
